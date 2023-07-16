@@ -18,7 +18,7 @@ public class TransferenciaService {
     public List<Transferencia> findAll() {
         return transferenciaRepository.findAll();
     }
-    
+
     public Page<Transferencia> findAllPageable(Pageable pageable) {
         return transferenciaRepository.findAll(pageable);
     }
