@@ -5,19 +5,20 @@ import br.com.banco.services.TransferenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@Controller
 @RestController
 @RequestMapping("/api/transferencias")
+@CrossOrigin(origins = "http://localhost:3000")
 public class TransferenciaController {
     @Autowired
     private TransferenciaService transferenciaService;
 
     @GetMapping
-    public Page<Transferencia> getAllTransferencias(
+    public Page<Transferencia> getTransferencias(
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "4") int size
     ) {
